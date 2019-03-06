@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<Head>
+  <meta charset="utf-8">
+  <title>Artefact EXAMENSARBETE</title>
+  <link href="https://fonts.googleapis.com/css?family=Nova+Flat|Pacifico|Righteous|Special+Elite|VT323" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ header }}</h1>
+    <div class="product">
+      <div class="product-image">
+        <img class="image-product" v-bind:src="image" :alt="altText"></img>
+      </div>
+      <div class="product-info">
+        <h2>{{ title }}</h2>
+        <span id="onsale" v-if="onSale">On Sale!</span>
+        <p>{{ description }}</p>
+        <p v-if="inventory > 10">In stock</p>
+        <p v-else-if="inventory <= 10 && inventory > 0">Almost out of stock!</p>
+        <p v-else>Out of stock</p>
+
+        <ul>
+          <li v-for="detail in details">{{ detail }}</li>
+        </ul>
+
+        <div v-for="variant in variants"
+        :key="variant.variantId"
+        class="color-box"
+        :style="{ backgroundColor: variant.variantColor }"
+        v-on:mouseover="updateProduct(variant.variantImage)">
+        </div>
+
+        <button v-on:click="addToCart" :disabled="inventory == 0" :class="{ disabledButton: inventory == 0 }"> Add to Cart</button>
+
+        <div class="cart">
+          <p>Cart({{cart}})</p>
+          <button v-on:click="removeFromCart">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Single-page Application</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sollicitudin, orci in condimentum dapibus, lectus felis egestas libero, id fringilla justo quam nec ante. Suspendisse lectus sem, iaculis ut magna eu, bibendum tempus odio. Nam
+    tincidunt turpis ac accumsan pretium. Donec laoreet ultricies ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vel enim vestibulum, consequat sem ut, vestibulum eros. Aliquam posuere ac leo at
+    porttitor. Mauris ac velit sit amet ante suscipit blandit. Maecenas hendrerit nisl a est ultricies dignissim. Curabitur maximus turpis et vehicula tempus.
+
+    Praesent ut semper mauris, sit amet suscipit dui. Donec nec diam venenatis, finibus diam sed, luctus quam. Ut ac lectus dui. Etiam porta magna volutpat volutpat interdum. Fusce ut urna pulvinar, elementum arcu sit amet, volutpat quam.
+    Pellentesque quis viverra velit. Duis malesuada, odio sit amet suscipit finibus, ligula orci porttitor purus, in ultrices dui sem nec lectus.
+
+    Sed rhoncus ac lacus in mollis. Maecenas ut nunc nibh. Nunc eu mauris rhoncus, pretium felis at, luctus tortor. Donec elementum metus eget rutrum vehicula. Phasellus varius laoreet tempus. Duis eleifend erat facilisis mi porta, vitae
+    pellentesque arcu scelerisque. Mauris non consequat dui, et convallis nunc. Sed faucibus ullamcorper sapien et rhoncus. Donec ut consectetur turpis. Proin ante risus, condimentum et risus cursus, ullamcorper luctus turpis. Sed tempus in libero
+    vel accumsan. Donec finibus nulla quis massa mattis facilisis. Donec eget elit elementum, bibendum leo et, mattis mauris. Pellentesque semper, lacus in fermentum volutpat, tortor leo hendrerit risus, id placerat magna dui non velit. Sed dictum
+    malesuada tellus ut auctor. In arcu neque, pharetra eu consectetur eu, pretium id ante.
+
+    In tempor eros vel nisl varius convallis. Vestibulum sed ligula non velit pellentesque auctor commodo dictum tortor. Nam varius aliquet risus in bibendum. Donec placerat est nec arcu finibus vulputate ut ut leo. Suspendisse rhoncus hendrerit
+    velit ut laoreet. Cras ullamcorper fringilla ipsum, eget tempor quam sollicitudin ut. Sed sed felis eget mi elementum viverra. Nulla quis odio metus. Suspendisse faucibus, arcu non ornare aliquet, erat leo vulputate nulla, id facilisis magna
+    quam id dui. Suspendisse potenti. In venenatis quam id massa rhoncus, sit amet imperdiet felis mattis.
+
+    Nulla facilisi. Ut quis mi orci. Curabitur non lobortis risus. Etiam sagittis pretium malesuada. Donec vel sodales augue. Nunc augue libero, congue quis sem sit amet, tincidunt fringilla mauris. Quisque mollis, sapien id aliquam pellentesque,
+    lorem odio pulvinar mauris, ac ultrices nisl sem vitae metus. Donec in nulla eu urna porta consequat sed nec dolor. Vivamus tempus ex sed urna aliquet iaculis. Nunc et mi justo. Fusce iaculis urna quis nisi posuere consectetur. Donec
+    sollicitudin, elit nec tempor aliquam, arcu felis dignissim nibh, fermentum viverra mauris urna sed metus. Duis dapibus efficitur ligula, non ornare quam.
+  </p>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="vue.js"></script>
+</html>
