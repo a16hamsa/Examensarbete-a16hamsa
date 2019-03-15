@@ -4,7 +4,9 @@
   "description": "Examensarbetes Artefakt",
   "main": "vue.js",
   "dependencies": {
+    "connect": "^3.6.6",
     "react": "^16.8.4",
+    "serve-static": "^1.13.2",
     "vue": "^2.6.8"
   },
   "devDependencies": {},
