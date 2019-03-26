@@ -5,7 +5,9 @@
   "main": "vue.js",
   "dependencies": {
     "connect": "^3.6.6",
+    "next": "^8.0.3",
     "react": "^16.8.4",
+    "react-dom": "^16.8.5",
     "serve-static": "^1.13.2",
     "vue": "^2.6.8"
   },
